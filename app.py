@@ -5,8 +5,13 @@ from tkinter.filedialog import askopenfile
 from main import *
 
 root = tk.Tk()
-canvas = tk.Canvas(root,width=600,height=300,bg = "red")
-canvas.grid(columnspan = 3,rowspan = 3)
+root.title("Automated Stackoverflow")
+root.geometry("600x300")
+root.minsize(600, 300)
+root.maxsize(600, 300)
+
+canvas = tk.Canvas(root,width=600,height=300)
+canvas.grid(columnspan = 4,rowspan = 4)
 
 #inserting image
 # logo = Image.open('404_image.jpg')
@@ -17,9 +22,12 @@ canvas.grid(columnspan = 3,rowspan = 3)
 # logo_label.grid(column = 0,row = 0)
 
 
+#background image
+
+
 #instruction
 instruction = tk.Label(root,text = "Select the python program to execute")
-instruction.grid(column = 1,row = 1)
+instruction.grid(columnspan = 2,column = 1,row = 1)
 
 
 
@@ -44,9 +52,10 @@ def open_file():
 def locate_error():
     if(file_path == ""):
         messagebox.showerror("Error", "File not selected")
-    program_name_list = file_path.split('/')
-    program_name = program_name_list[-1]
-    locate_stack_overflow(program_name)
+    else:
+        program_name_list = file_path.split('/')
+        program_name = program_name_list[-1]
+        locate_stack_overflow(program_name)
 
 
 #browse button
@@ -62,8 +71,6 @@ error_text.set("Locate Error")
 error_btn.grid(column = 2,row = 2)
 
 
-canvas = tk.Canvas(root,width=600,height=100,bg = "green")
-canvas.grid(columnspan = 3)
 
 
 

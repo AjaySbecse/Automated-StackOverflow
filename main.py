@@ -48,4 +48,4 @@ def locate_stack_overflow(program_name):
 
 
     else:
-        messagebox.showerror("Success", "No error Found in the Program")
+        messagebox.showinfo("Success", "No error Found in the Program")
