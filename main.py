@@ -1,3 +1,5 @@
+# This file is the core of my application
+# It will select the file and call the stackoverflow api and will open the new tabs
 from subprocess import Popen, PIPE
 import requests
 import webbrowser
