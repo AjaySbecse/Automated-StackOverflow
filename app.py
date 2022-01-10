@@ -23,11 +23,16 @@ canvas.grid(columnspan = 4,rowspan = 4)
 
 
 #background image
+img = Image.open('error_image.jpg')
+resize_image = img.resize((600, 300))
+bg = ImageTk.PhotoImage(resize_image)
 
+label = tk.Label(root, image=bg)
+label.place(x = 0,y = 0)
 
 #instruction
 instruction = tk.Label(root,text = "Select the python program to execute")
-instruction.grid(columnspan = 2,column = 1,row = 1)
+instruction.grid(columnspan = 2,column = 1,row = 0)
 
 
 
