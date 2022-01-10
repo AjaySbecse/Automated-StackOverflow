@@ -76,7 +76,7 @@ browse_btn.grid(column = 1,row = 2)
 error_text = tk.StringVar()
 error_btn = tk.Button(root,textvariable = error_text,command = lambda:locate_error(),height=2,width=15,bg="green",fg = "white")
 error_text.set("Locate Error")
-error_btn.grid(column = 2,row = 2)
+error_btn.grid(column = 2, row = 2)
 
 
 # To select number of tabs to open
