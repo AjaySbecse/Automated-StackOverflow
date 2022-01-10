@@ -6,12 +6,12 @@ from main import *
 
 root = tk.Tk()
 root.title("Automated Stackoverflow")
-root.geometry("600x300")
-root.minsize(600, 300)
-root.maxsize(600, 300)
+root.geometry("600x400")
+root.minsize(600, 400)
+root.maxsize(600, 400)
 
-canvas = tk.Canvas(root,width=600,height=300)
-canvas.grid(columnspan = 4,rowspan = 4)
+canvas = tk.Canvas(root,width=600,height=400)
+canvas.grid(columnspan = 4,rowspan = 5)
 
 #inserting image
 # logo = Image.open('404_image.jpg')
@@ -24,7 +24,7 @@ canvas.grid(columnspan = 4,rowspan = 4)
 
 #background image
 img = Image.open('error_image.jpg')
-resize_image = img.resize((600, 300))
+resize_image = img.resize((600, 400))
 bg = ImageTk.PhotoImage(resize_image)
 
 label = tk.Label(root, image=bg)
@@ -47,7 +47,7 @@ def open_file():
     
     file = askopenfile(parent= root,mode = 'rb',title = "Choose a Python file",filetype = [('Python file',"*.py")])
     if file:
-        browse_text.set("Browse")
+        browse_text.set("File added")
         print("File opened successfully")
         #print(file.name) #pass this as a parameter to main.py
 
@@ -55,12 +55,15 @@ def open_file():
         file_path = file.name;
 
 def locate_error():
+
+    no_of_tabs = option_value.get()
+
     if(file_path == ""):
         messagebox.showerror("Error", "File not selected")
     else:
         program_name_list = file_path.split('/')
         program_name = program_name_list[-1]
-        locate_stack_overflow(program_name)
+        locate_stack_overflow(program_name,no_of_tabs)
 
 
 #browse button
@@ -74,6 +77,15 @@ error_text = tk.StringVar()
 error_btn = tk.Button(root,textvariable = error_text,command = lambda:locate_error(),height=2,width=15,bg="green",fg = "white")
 error_text.set("Locate Error")
 error_btn.grid(column = 2,row = 2)
+
+
+# To select number of tabs to open
+OPTIONS = [1,2,3,4,5]
+option_value = tk.StringVar(root)
+option_value.set(OPTIONS[0])
+
+select_tab = tk.OptionMenu(root,option_value,*OPTIONS)
+select_tab.grid(column = 3,row = 0);
 
 
 

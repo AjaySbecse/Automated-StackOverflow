@@ -5,7 +5,7 @@ import requests
 import webbrowser
 from tkinter import messagebox
 
-def locate_stack_overflow(program_name):
+def locate_stack_overflow(program_name,no_of_tabs):
     process = Popen([program_name], stdout=PIPE, stderr=PIPE,shell = True)
 
     stdout, stderr = process.communicate()
@@ -14,6 +14,7 @@ def locate_stack_overflow(program_name):
     error_body = ""
     s = stderr.decode('utf-8') # if any error found stderr contain the traceback in binary format. We converted to utf-8
     hasError = False
+    no_of_tabs = int(no_of_tabs)
 
     if(s != ""):
         hasError = True
@@ -38,8 +39,8 @@ def locate_stack_overflow(program_name):
         r = requests.get(url = URL)
         data = r.json()
         data_length = len(data['items'])
-        if(data_length > 3):
-            for i in range(3):
+        if(data_length > no_of_tabs):
+            for i in range(no_of_tabs):
                 url = data['items'][i]['link']
                 webbrowser.open_new_tab(url)
         else:
