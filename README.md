@@ -19,3 +19,6 @@ If you want to use this project you must have to download this packages using
 ## Why do you need Automated StackOverflow ? 
   As a developer/Programmer we might come across my errors in our program or in our life(just for fun). Each time reading the errors or finding the exact error by looking the error log is time consuming.
   Here we simply select your python file, and click the Locate Error Button. It will make your life so easy by finding the stackoverflow page for you. 
+
+## Project image
+![Automated Stackoverflow](https://github.com/AjaySbecse/Automated-StackOverflow/blob/master/automated%20stackoverflow.jpg)
